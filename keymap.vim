@@ -21,7 +21,11 @@ noremap <leader>.l :source $MYVIMRC<cr>
 
 noremap <leader><leader> :Commands<CR>
 noremap <leader>ff :Files<CR>
+
 noremap <leader>bb :Buffers<CR>
+noremap <leader>bn :bnext<CR>
+noremap <leader>bp :bprevious<CR>
+noremap <leader>bd :bdelete<CR>
 
 noremap <leader>ws :split
 noremap <leader>wv :vsplit
@@ -30,4 +34,6 @@ noremap <leader>wh <C-w>h
 noremap <leader>wj <C-w>j
 noremap <leader>wk <C-w>k
 noremap <leader>wl <C-w>l
+noremap <leader>wo <C-w>o
+noremap <leader>wc <C-w>c
 

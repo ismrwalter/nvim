@@ -1,5 +1,19 @@
-let g:coc_node_path = trim(system('which node'))
+let g:coc_global_extensions = ['coc-json', 
+            \ 'coc-tsserver', 
+            \ 'coc-vimlsp',
+            \ 'coc-xml',
+            \ 'coc-yaml',
+            \ 'coc-rls',
+            \ 'coc-python',
+            \ 'coc-bookmark',
+            \ 'coc-css',
+            \ 'coc-git',
+            \ 'coc-highlight',
+            \ 'coc-html',
+            \ 'coc-snippets',
+            \ 'coc-svg']
 
+let g:coc_node_path = trim(system('which node'))
 " use <c-space>for trigger completion
 inoremap <silent><expr> <c-space> coc#refresh()
 inoremap <silent><expr> <NUL> coc#refresh()
@@ -24,3 +38,5 @@ function! s:check_back_space() abort
 endfunction
 
 let g:coc_snippet_next = '<tab>'
+
+autocmd CursorHold * silent call CocActionAsync('highlight')

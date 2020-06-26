@@ -98,6 +98,8 @@ set shiftwidth=4 " 缩进宽度（按下`>>` 增加的空格数）
 set expandtab " 格式化时将存在的tab转换为空格
 " }}}
 set foldmethod=marker
+" 取消隐藏符号
+set conceallevel=1
 
 " 备份文件 {{{
 set nobackup " 不创建备份文件
@@ -124,10 +126,3 @@ let g:python3_host_prog = trim(system('pyenv which python'))
 let g:mkdp_browser = 'chromium'
 " }}}
 
-" 折叠VIM文件 {{{
-augroup filetype_vim
-    autocmd!
-    autocmd FileType vim setlocal foldmethod=marker
-augroup END
-
-" }}}
