@@ -70,6 +70,8 @@ set list
 
 " Tab补全命令
 set wildmenu
+set wildchar=<Tab>
+set wildcharm=<Tab>
 " set wildmode=longest:list,full
 
 set hidden
@@ -87,6 +89,7 @@ set nocompatible
 " 默认编码
 set encoding=utf-8
 
+" set guifont=Sarasa\ Mono\ SC 18
 set guifont=*
 
 " 缩进 {{{
@@ -121,8 +124,8 @@ set undodir=~/.vim/.undo//
 
 " Provider {{{
 let g:python_host_prog='/usr/bin/python2'
-let g:python3_host_prog = trim(system('pyenv which python'))
-"let g:node_host_prog=trim(system('usr/share//nvm which node'))
+let g:python3_host_prog = trim(system('which python'))
+let g:node_host_prog=trim(system('which node'))
 let g:mkdp_browser = 'chromium'
 " }}}
 

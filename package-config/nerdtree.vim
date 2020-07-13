@@ -3,4 +3,6 @@ let g:NERDTreeDirArrowCollapsible = '❐'
 let g:NERDTreeStatusline = '%#NonText#'
 let g:NERDTreeMinimalUI = 1
 
-nnoremap <leader>vf :NERDTreeToggle<CR>
+
+let g:which_key_map['f']['t'] = 'file tree'
+noremap <leader>ft :NERDTreeToggle<CR>

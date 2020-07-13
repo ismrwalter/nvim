@@ -4,8 +4,5 @@ if has('termguicolors')
     let ayucolor="mirage" " for mirage version of theme
     "let ayucolor="dark"   " for dark version of theme
     colorscheme ayu
-else
-    if PlugExist('onedark.vim')
-        colorscheme onedark
-    endif
+    let g:airline_theme='ayu'
 endif

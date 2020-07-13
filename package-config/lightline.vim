@@ -5,4 +5,12 @@ function! LightlineGitBlame() abort
 endfunction
 
 " lightline
-let g:lightline = {'colorscheme': 'ayu'}
+let g:lightline = {
+            \ 'colorscheme': 'ayu',
+            \ 'active': {
+            \   'left': [ [ 'mode', 'paste', 'bufferlist' ] ]
+            \ },
+            \ 'component': {
+            \   'bufferlist': '%{bufferline#refresh_status()}'.bufferline#get_status_string()
+            \ }
+            \ }

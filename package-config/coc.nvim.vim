@@ -1,4 +1,7 @@
-let g:coc_global_extensions = ['coc-json', 
+let g:coc_global_extensions = [
+            \ 'coc-browser',
+            \ 'coc-explorer',
+            \ 'coc-json', 
             \ 'coc-tsserver', 
             \ 'coc-vimlsp',
             \ 'coc-xml',
@@ -24,7 +27,6 @@ inoremap <expr> <S-Tab> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
 inoremap <expr> <cr> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
 " Close the preview window when completion is done.
 autocmd! CompleteDone * if pumvisible() == 0 | pclose | endif
-
 
 inoremap <silent><expr> <TAB>
             \ pumvisible() ? coc#_select_confirm() :

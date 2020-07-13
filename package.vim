@@ -1,26 +1,40 @@
 let s:package_path = $MYVIMHOME.'/package'
 call plug#begin(s:package_path)
-Plug 'mhinz/vim-startify'
+Plug 'mhinz/vim-startify', { 'config':'vim-startify1' }
 Plug 'vim-scripts/fcitx.vim'
-Plug 'joshdick/onedark.vim'
+Plug 'ybian/smartim'
+
+" Plug 'joshdick/onedark.vim'
+
 Plug 'ayu-theme/ayu-vim'
+
 Plug 'Yggdroot/indentLine'
-Plug 'itchyny/lightline.vim' 
-Plug 'bling/vim-bufferline' 
+
+Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
+
+Plug 'bling/vim-bufferline'
+
 Plug 'luochen1990/rainbow'
 
-Plug 'majutsushi/tagbar'
+Plug 'liuchengxu/vim-which-key'
 
-Plug 'shougo/unite.vim'
+Plug 'caenrique/nvim-toggle-terminal'
+" 语法高亮集合
+Plug 'sheerun/vim-polyglot'
+
 " fzf 集成
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
+
+" Plug 'kdheepak/lazygit.vim', { 'branch': 'nvim-v0.4.3' }
+
+" Plug 'Yggdroot/LeaderF', { 'do': './install.sh' }
+" Plug 'ctrlpvim/ctrlp.vim'
 " 文件管理
 Plug 'preservim/nerdtree'
-" Git 
-Plug 'Xuyuanp/nerdtree-git-plugin'
 " 显示Git文件变化
-Plug 'airblade/vim-gitgutter'
+Plug 'Xuyuanp/nerdtree-git-plugin'
 " 自动设置项目根目录
 Plug 'airblade/vim-rooter'
 " 自动格式化代码
@@ -28,7 +42,8 @@ Plug 'Chiel92/vim-autoformat'
 " 自动括号
 Plug 'jiangmiao/auto-pairs'
 " 注释插件
-Plug 'preservim/nerdcommenter'
+" Plug 'tomtom/tcomment_vim'
+Plug 'scrooloose/nerdcommenter'
 " 高亮当前光标的关键字
 Plug 'RRethy/vim-illuminate'
 " 代码换行切换
@@ -36,11 +51,11 @@ Plug 'AndrewRadev/splitjoin.vim'
 " 方便编辑成对出现的代码
 Plug 'tpope/vim-surround'
 " 快速跳转
-Plug 'easymotion/vim-easymotion'
+"Plug 'easymotion/vim-easymotion'
 " 增强f和t
 Plug 'rhysd/clever-f.vim'
-" 增强书签
-Plug 'MattesGroeger/vim-bookmarks'
+"显示Mark
+Plug 'kshenoy/vim-signature'
 " lsp支持
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 " 安装完成后需要执行 :
@@ -74,13 +89,17 @@ function PlugExist(name)
 endfunction
 let s:package_config_path = $MYVIMHOME.'/package-config'
 for key in keys(g:plugs)
-    let s:package=key =~ '\.vim' ? key : key.'.vim'
-    let s:package_path = s:package_config_path.'/'.s:package
+    let filename=key
+    if has_key(g:plugs[key],'config')
+        let filename=g:plugs[key]['config']
+    endif
+    let package=filename =~ '\.vim' ? filename : filename.'.vim'
+    let package_path = s:package_config_path.'/'.package
     "echom 'source ' . s:package_path
-    if filereadable(s:package_path)
-        exec 'source ' . s:package_path
+    if filereadable(package_path)
+        exec 'source ' . package_path
     else
-        call writefile([],s:package_path,'')
+        call writefile([],package_path,'')
     endif
 endfor
 
